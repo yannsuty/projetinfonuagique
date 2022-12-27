@@ -1,0 +1,13 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+      - train.py
+      - wine_quality.csv
+    outs:
+      - metrics.txt
+      - feature_importance.png
+      - residuals.png
+    metrics:
+      - metrics.json:
+          cache: false # so don't rely on local caches
